@@ -5,10 +5,11 @@
 // 🟩 PART 1: Selecting and Styling Elements (1–10)
 
 // 1️⃣ Change text color of heading with id="title" to red.
-
+    document.getElementById("title").style.color="red";
 
 // 2️⃣ Change background color of all <p> elements to lightgray.
-
+    const p =document.querySelectorAll('p');
+     
 
 // 3️⃣ Change heading text (#title) to "Welcome to the DOM Lab!".
 
