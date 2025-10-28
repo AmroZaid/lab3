@@ -54,34 +54,73 @@ if (sample) {
 // 🟦 PART 2: Creating and Appending Elements (11–20)
 
 // 1️⃣1️⃣ Create a new <p> and append it to the <body>.
-
+    const newPara = document.createElement('p');
+    newPara.textContent = "this paragraph was added using javascript, task 11";
+    document.body.appendChild(newPara);
 
 // 1️⃣2️⃣ Create a new <li> and add it to the existing <ul>.
-
+const newLi = document.createElement("li");
+newLi.textContent = "this line wes added with javascript";
+    document.querySelector("ul").appendChild(newLi);
 
 // 1️⃣3️⃣ Create a <button> labeled "Click Me!" and append it to a <div>.
-
+const btn1 = document.createElement("button");
+document.querySelector("div").appendChild(btn1);
+btn1.textContent = "Click Me!";
 
 // 1️⃣4️⃣ Create <h2> dynamically and insert it before the first <p>.
-
+    const heading2 = document.createElement('h2');
+heading2.textContent = "I was created dynamically!";
+const p1 = document.querySelector("p");
+if (p1)
+{
+    p1.parentNode.insertBefore(heading2, p1);
+        }
 
 // 1️⃣5️⃣ Create an image and set width and height.
-
+    const newImg = document.createElement("img");
+newImg.style.width = "100px";
+newImg.style.height = "100px";
+newImg.src = "https://i.pinimg.com/736x/2d/95/e5/2d95e5886fc4c65a6778b5fee94a7d59.jpg";
+document.body.appendChild(newImg);
 
 // 1️⃣6️⃣ Add 3 new <li> items using a loop.
+const unorderdList = document.querySelector('ul');
 
-
+if (unorderdList)
+{   
+    for(let i = 1;i<=3;i++)
+    {
+        const newListItem = document.createElement("li");
+        newListItem.textContent = `New item number: ${i}`
+        unorderdList.appendChild(newListItem);
+    }           
+}
 // 1️⃣7️⃣ Create a <div> with class "card" and text inside.
-
+const card1 = document.createElement("div");
+card1.classList.add("Card");
+card1.textContent = "I am new card element";
+document.body.appendChild(card1);
 
 // 1️⃣8️⃣ Append a paragraph containing your name.
-
-
+const myname = document.createElement("p");
+myname.textContent = "عمرو زيد المحيسن/Amro Zaid Al Mohisn";
+document.body.appendChild(myname);
 // 1️⃣9️⃣ Add a <span>[Edited]</span> inside every <p>.
 
+    pList.forEach(element => {
+        const editSpan = document.createElement('span');
+        editSpan.textContent = "[Edited]";
+        element.appendChild(editSpan);
+    });
 
 // 2️⃣0️⃣ Remove the last child of <ul>.
-
+if (unorderdList && unorderdList.lastElementChild)
+{
+    const lastChiled = unorderdList.lastElementChild;
+    unorderdList.removeChild(lastChiled);   
+        
+}
 
 // 🟨 PART 3: Event Handling (21–30)
 
