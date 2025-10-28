@@ -125,34 +125,127 @@ if (unorderdList && unorderdList.lastElementChild)
 // 🟨 PART 3: Event Handling (21–30)
 
 // 2️⃣1️⃣ Add click event that shows an alert.
-
-
+    const clickableElement = document.querySelector('h2');//Click the heading "Sample Subheading"
+if (clickableElement)
+{
+    clickableElement.addEventListener("click", () => {
+        alert("Event has been triggered!");
+    });
+}
 // 2️⃣2️⃣ Change background color of a <div> when clicked.
+const clickableDivElement = document.querySelector('div');
+if (clickableDivElement)
+{
+    clickableDivElement.addEventListener("click", () => {
+        if (clickableDivElement.style.backgroundColor === "red")
+            clickableDivElement.style.backgroundColor = "lightblue";
+        else
+            clickableDivElement.style.backgroundColor = "red";
+    });//click inside the first div element to see the effect
 
-
+}
 // 2️⃣3️⃣ When hovering over <p>, make it bold.
+    const hoveringPElement = document.querySelectorAll('p');
+    hoveringPElement.forEach(element => {
+    element.addEventListener("mouseenter", () => {
+        element.style.fontWeight = "bold";
+    });
+});
 
 
 // 2️⃣4️⃣ When mouse leaves paragraph, remove bold style.
 
+// const hoveringPElement = document.querySelectorAll('p');
+hoveringPElement.forEach(element => {
+    element.addEventListener("mouseleave", () => {
+        element.style.fontWeight = "normal";
+    });
+});
 
 // 2️⃣5️⃣ Add button to hide the image.
-
+const hidebtn = document.createElement("button");
+hidebtn.textContent = "hide";
+const targetImg = document.querySelector("img");
+if (targetImg)
+{
+    targetImg.after(hidebtn); 
+    hidebtn.addEventListener("click",()=> {
+    targetImg.style.display = "none";
+    })
+    
+}
 
 // 2️⃣6️⃣ Add button to show the image again.
-
+const showbtn = document.createElement("button");
+showbtn.textContent = "show";
+//const targetImg = document.querySelector("img");
+if (targetImg)
+{
+    targetImg.after(showbtn); 
+    showbtn.addEventListener("click",()=> {
+    targetImg.style.display = "block";
+    })
+    
+}
 
 // 2️⃣7️⃣ Create a counter button that increases with each click.
+let i = 0;
+const counterDisplay = document.createElement("span");
+counterDisplay.textContent = `counter : ${i}`;
 
+const counterBtn = document.createElement("button"); 
+counterBtn.textContent = "Count Up";
+counterBtn.style.marginLeft = "30px";
+
+document.body.appendChild(counterDisplay);
+document.body.appendChild(counterBtn);
+
+counterBtn.addEventListener("click", () => { 
+    i++;
+    counterDisplay.textContent = `counter : ${i}`;
+
+});
 
 // 2️⃣8️⃣ Display entered text from an input when button clicked.
 
+const inputField = document.querySelector('#userInput');
+const submitButton = document.querySelector('#displayButton');
+const outputDisplay = document.querySelector("#output");
+outputDisplay.textContent = "submitted text will apper here!";
+
+if (outputDisplay && inputField)
+{
+    submitButton.addEventListener("click", () => {
+        outputDisplay.textContent = inputField.value;
+        inputField.value = "";
+    });
+}
 
 // 2️⃣9️⃣ Change background color randomly when a button is clicked.
+let r, g, b;
+const randomColorButton = document.createElement('button');
+randomColorButton.textContent = "Random RGB Color!";
+document.body.appendChild(randomColorButton);
+randomColorButton.addEventListener("click", () => {
+r = getRandomValue();
+g = getRandomValue();
+b = getRandomValue();
+    document.body.style.backgroundColor = `rgb(${r},${g},${b})`;    
+});
 
 
+function getRandomValue() {
+    return Math.floor(Math.random() * 256);
+}
 // 3️⃣0️⃣ Display which key is pressed.
+const keyDisplay = document.createElement('h3');
+keyDisplay.textContent = "Press any key on your keyboard...";
 
+document.body.appendChild(keyDisplay);
+
+document.addEventListener("keydown", (event) => {
+    keyDisplay.textContent = `Key pressed: ${event.key}`;  
+});
 
 // 🟧 PART 4: Modifying and Traversing DOM (31–40)
 
