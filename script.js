@@ -250,19 +250,55 @@ document.addEventListener("keydown", (event) => {
 // 🟧 PART 4: Modifying and Traversing DOM (31–40)
 
 // 3️⃣1️⃣ Change text of the first <li>.
-
+unorderdList.firstChild.textContent = "this text has been changed task 31";
 
 // 3️⃣2️⃣ Get input value when button clicked.
+const inputBtn = document.createElement("button");
+const inputform = document.createElement('input');
+inputField.type = "text";
+inputBtn.textContent = "input";
+inputBtn.style.marginLeft = "25";
+let input; 
+document.body.appendChild(inputform);
+document.body.appendChild(inputBtn);
 
+inputBtn.addEventListener("click", () => {
+    input = inputform.value;
+    inputform.value = "";
+});
 
 // 3️⃣3️⃣ Count number of <p> and alert the count.
+let countP = 0;
+const countPelement = document.createElement("button");
+document.body.appendChild(countPelement);
+countPelement.textContent = "count all P element";
+countPelement.addEventListener("click", () => {
+        pList.forEach(element => {
+        countP++;
+    });
+    //or
+//  countP = pList.length;
+// pList is already defined and is an array of all P element.
 
+    alert(`the number of <P> element is: ${countP}`);//added the button for conveniance
+});
 
 // 3️⃣4️⃣ Remove all <p> elements.
 
+const pAll = document.querySelectorAll("p");
+    pAll.forEach(element => {
+        element.remove();
+    });
 
 // 3️⃣5️⃣ Replace existing <h2> with new one.
+const oldH2 = document.querySelector("h2");
+const newH2 = document.createElement("h2");
 
+newH2.textContent = "this is the new H2 element! ";
+if (oldH2)
+{
+    oldH2.replaceWith(newH2);    
+}
 
 // 3️⃣6️⃣ Add CSS class 'highlighted' to all <li>.
 
