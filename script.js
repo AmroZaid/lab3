@@ -301,15 +301,66 @@ if (oldH2)
 }
 
 // 3️⃣6️⃣ Add CSS class 'highlighted' to all <li>.
-
-
+const allListItems = document.querySelectorAll('li');
+allListItems.forEach(element => {
+    element.classList.add("highlighted");
+    });
 // 3️⃣7️⃣ Toggle a CSS class on <div> when clicked.
-
+const containerDiv = document.getElementById('container');
+const toggleClassName = 'toggled';
+if (containerDiv) {
+    containerDiv.addEventListener('click',()=>
+    {
+        containerDiv.classList.toggle(toggleClassName);
+    });
+}
 
 // 3️⃣8️⃣ Clone an existing element and append copy.
+const originalP = document.querySelector('p');
+if (originalP) {
+   
+    const clonedP = originalP.cloneNode(true);
+    clonedP.textContent = "I am a CLONE of the first paragraph!";
+    clonedP.style.backgroundColor = 'pink';
+    containerDiv.appendChild(clonedP);
 
+}
 
 // 3️⃣9️⃣ Scroll smoothly to bottom when button clicked.
-
+const scrollButton = document.createElement('button');
+scrollButton.textContent = "Scroll to Bottom";
+scrollButton.style.marginTop = '20px'
+scrollButton.style.display = 'block';
+const mainTitle = document.getElementById('title');
+if (mainTitle) {
+    mainTitle.after(scrollButton);
+}
+scrollButton.addEventListener("click", () => {
+    document.body.scrollIntoView({ behavior: "smooth", block: "end" });
+});
 
 // 4️⃣0️⃣ Build list dynamically using innerHTML from an array.
+
+const food = [
+    "air fryed chicken", 
+    "Milk", 
+    "french frise", 
+    "boiled eggs", 
+    "oat"
+];
+const newlist = document.createElement('ul');
+newHtml = "";
+food.forEach(e => {
+    newHtml += `<li>${e}</li>`;
+});
+
+newlist.innerHTML = newHtml;
+document.body.appendChild(newlist);
+
+
+
+
+
+
+
+
